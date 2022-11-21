@@ -6,6 +6,7 @@
      xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
      xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
      ontologyIRI="https://raw.githubusercontent.com/fititnt/openstreetmap-ontologia-brasil/main/ontologia/osm-bra-highway-speed.owl#">
+    <Prefix name="" IRI="https://raw.githubusercontent.com/fititnt/openstreetmap-ontologia-brasil/main/ontologia/osm-bra-highway-speed.owl#"/>
     <Prefix name="owl" IRI="http://www.w3.org/2002/07/owl#"/>
     <Prefix name="rdf" IRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#"/>
     <Prefix name="xml" IRI="http://www.w3.org/XML/1998/namespace"/>
@@ -18,6 +19,19 @@
 
 Ela serve para demonstrar exemplo básico de como funcionam programas como Protégé, mas não está projetada para algo permanente.</Literal>
     </Annotation>
+    <Annotation>
+        <AnnotationProperty abbreviatedIRI="rdfs:seeAlso"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#anyURI">https://service.tib.eu/webvowl/#iri=https://raw.githubusercontent.com/fititnt/openstreetmap-ontologia-brasil/main/ontologia/osm-bra-highway-speed.owl</Literal>
+    </Annotation>
+    <Declaration>
+        <Class IRI="Automóvel"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="Caminhão"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="Estrada"/>
+    </Declaration>
     <Declaration>
         <Class IRI="Rodovia"/>
     </Declaration>
@@ -25,7 +39,16 @@ Ela serve para demonstrar exemplo básico de como funcionam programas como Prot�
         <Class IRI="Tipo_de_via"/>
     </Declaration>
     <Declaration>
+        <Class IRI="Tipos_de_veículos"/>
+    </Declaration>
+    <Declaration>
         <Class IRI="Velocidade_de_trânsito"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="Via"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="Via_rural"/>
     </Declaration>
     <Declaration>
         <Class IRI="Via_urbana"/>
@@ -60,8 +83,42 @@ Ela serve para demonstrar exemplo básico de como funcionam programas como Prot�
     <Declaration>
         <Class IRI="90_kmh"/>
     </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="ID_de_relação_do_OpenStreetMap"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="Q_na_Wikidata"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="Tipo_de_via"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="Velocidade_de_trânsito_máxima_padrão"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="BR-101"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="BR-116"/>
+    </Declaration>
+    <SubClassOf>
+        <Class IRI="Automóvel"/>
+        <Class IRI="Tipos_de_veículos"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="Caminhão"/>
+        <Class IRI="Tipos_de_veículos"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="Estrada"/>
+        <Class IRI="Via_rural"/>
+    </SubClassOf>
     <SubClassOf>
         <Class IRI="Rodovia"/>
+        <Class IRI="Via_rural"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="Via_rural"/>
         <Class IRI="Tipo_de_via"/>
     </SubClassOf>
     <SubClassOf>
@@ -108,6 +165,50 @@ Ela serve para demonstrar exemplo básico de como funcionam programas como Prot�
         <Class IRI="90_kmh"/>
         <Class IRI="Velocidade_de_trânsito"/>
     </SubClassOf>
+    <ClassAssertion>
+        <Class IRI="Via"/>
+        <NamedIndividual IRI="BR-101"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="Via"/>
+        <NamedIndividual IRI="BR-116"/>
+    </ClassAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="Q_na_Wikidata"/>
+        <NamedIndividual IRI="BR-116"/>
+        <NamedIndividual IRI="BR-116"/>
+    </ObjectPropertyAssertion>
+    <SubObjectPropertyOf>
+        <ObjectProperty IRI="ID_de_relação_do_OpenStreetMap"/>
+        <ObjectProperty abbreviatedIRI="owl:topObjectProperty"/>
+    </SubObjectPropertyOf>
+    <SubObjectPropertyOf>
+        <ObjectProperty IRI="Q_na_Wikidata"/>
+        <ObjectProperty abbreviatedIRI="owl:topObjectProperty"/>
+    </SubObjectPropertyOf>
+    <SubObjectPropertyOf>
+        <ObjectProperty IRI="Tipo_de_via"/>
+        <ObjectProperty abbreviatedIRI="owl:topObjectProperty"/>
+    </SubObjectPropertyOf>
+    <SubObjectPropertyOf>
+        <ObjectProperty IRI="Velocidade_de_trânsito_máxima_padrão"/>
+        <ObjectProperty abbreviatedIRI="owl:topObjectProperty"/>
+    </SubObjectPropertyOf>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:seeAlso"/>
+        <IRI>BR-101</IRI>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#anyURI">https://pt.wikipedia.org/wiki/BR-101</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:seeAlso"/>
+        <IRI>BR-116</IRI>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#anyURI">https://pt.wikipedia.org/wiki/BR-116</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>Via</IRI>
+        <Literal xml:lang="pt">Classe para conter as vías individuais que existem no mundo real</Literal>
+    </AnnotationAssertion>
 </Ontology>
 
 
