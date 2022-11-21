@@ -1,18 +1,20 @@
 <?xml version="1.0"?>
 <Ontology xmlns="http://www.w3.org/2002/07/owl#"
-     xml:base="https://raw.githubusercontent.com/fititnt/openstreetmap-ontologia-brasil/main/ontologia/osm-bra-highway-speed.owl#"
+     xml:base="https://purl.org/eticaai/osm/bra/osm-bra-highway-speed.owl#"
      xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
      xmlns:xml="http://www.w3.org/XML/1998/namespace"
      xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
      xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
-     ontologyIRI="https://raw.githubusercontent.com/fititnt/openstreetmap-ontologia-brasil/main/ontologia/osm-bra-highway-speed.owl#">
-    <Prefix name="" IRI="https://raw.githubusercontent.com/fititnt/openstreetmap-ontologia-brasil/main/ontologia/osm-bra-highway-speed.owl#"/>
+     ontologyIRI="https://purl.org/eticaai/osm/bra/osm-bra-highway-speed.owl#">
+    <Prefix name="" IRI="https://purl.org/eticaai/osm/bra/osm-bra-highway-speed.owl#"/>
     <Prefix name="owl" IRI="http://www.w3.org/2002/07/owl#"/>
     <Prefix name="rdf" IRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#"/>
     <Prefix name="xml" IRI="http://www.w3.org/XML/1998/namespace"/>
     <Prefix name="xsd" IRI="http://www.w3.org/2001/XMLSchema#"/>
     <Prefix name="rdfs" IRI="http://www.w3.org/2000/01/rdf-schema#"/>
-    <Prefix name="osmspeed" IRI="https://raw.githubusercontent.com/fititnt/openstreetmap-ontologia-brasil/main/ontologia/osm-bra-highway-speed.owl#"/>
+    <Prefix name="osmdata" IRI="https://wiki.openstreetmap.org/wiki/Special:EntityData/"/>
+    <Prefix name="osmspeed" IRI="https://purl.org/eticaai/osm/bra/osm-bra-highway-speed.owl#"/>
+    <Prefix name="wikidatadata" IRI="https://www.wikidata.org/wiki/Special:EntityData/"/>
     <Annotation>
         <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
         <Literal xml:lang="pt">Esta ontologia é apenas um exemplo rápido, sem interligação com outras fontes externas e/ou decisão de identificadores únicos.
@@ -24,16 +26,19 @@ Ela serve para demonstrar exemplo básico de como funcionam programas como Prot�
         <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#anyURI">https://service.tib.eu/webvowl/#iri=https://raw.githubusercontent.com/fititnt/openstreetmap-ontologia-brasil/main/ontologia/osm-bra-highway-speed.owl</Literal>
     </Annotation>
     <Declaration>
-        <Class IRI="Automóvel"/>
+        <Class IRI="Automóvel_e_caminhoneta"/>
     </Declaration>
     <Declaration>
-        <Class IRI="Caminhão"/>
+        <Class IRI="Demais_veículos"/>
     </Declaration>
     <Declaration>
         <Class IRI="Estrada"/>
     </Declaration>
     <Declaration>
         <Class IRI="Rodovia"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="Superfície_de_via"/>
     </Declaration>
     <Declaration>
         <Class IRI="Tipo_de_via"/>
@@ -46,6 +51,9 @@ Ela serve para demonstrar exemplo básico de como funcionam programas como Prot�
     </Declaration>
     <Declaration>
         <Class IRI="Via"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="Via_pavimentada"/>
     </Declaration>
     <Declaration>
         <Class IRI="Via_rural"/>
@@ -64,6 +72,9 @@ Ela serve para demonstrar exemplo básico de como funcionam programas como Prot�
     </Declaration>
     <Declaration>
         <Class IRI="Via_urbana_local"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="Ônibus_e_microônibus"/>
     </Declaration>
     <Declaration>
         <Class IRI="110_kmh"/>
@@ -101,12 +112,24 @@ Ela serve para demonstrar exemplo básico de como funcionam programas como Prot�
     <Declaration>
         <NamedIndividual IRI="BR-116"/>
     </Declaration>
+    <Declaration>
+        <AnnotationProperty IRI="osmdata:P12"/>
+    </Declaration>
+    <EquivalentClasses>
+        <Class IRI="Demais_veículos"/>
+        <ObjectComplementOf>
+            <ObjectUnionOf>
+                <Class IRI="Automóvel_e_caminhoneta"/>
+                <Class IRI="Ônibus_e_microônibus"/>
+            </ObjectUnionOf>
+        </ObjectComplementOf>
+    </EquivalentClasses>
     <SubClassOf>
-        <Class IRI="Automóvel"/>
+        <Class IRI="Automóvel_e_caminhoneta"/>
         <Class IRI="Tipos_de_veículos"/>
     </SubClassOf>
     <SubClassOf>
-        <Class IRI="Caminhão"/>
+        <Class IRI="Demais_veículos"/>
         <Class IRI="Tipos_de_veículos"/>
     </SubClassOf>
     <SubClassOf>
@@ -116,6 +139,10 @@ Ela serve para demonstrar exemplo básico de como funcionam programas como Prot�
     <SubClassOf>
         <Class IRI="Rodovia"/>
         <Class IRI="Via_rural"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="Via_pavimentada"/>
+        <Class IRI="Superfície_de_via"/>
     </SubClassOf>
     <SubClassOf>
         <Class IRI="Via_rural"/>
@@ -140,6 +167,10 @@ Ela serve para demonstrar exemplo básico de como funcionam programas como Prot�
     <SubClassOf>
         <Class IRI="Via_urbana_local"/>
         <Class IRI="Via_urbana"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="Ônibus_e_microônibus"/>
+        <Class IRI="Tipos_de_veículos"/>
     </SubClassOf>
     <SubClassOf>
         <Class IRI="110_kmh"/>
@@ -200,14 +231,39 @@ Ela serve para demonstrar exemplo básico de como funcionam programas como Prot�
         <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#anyURI">https://pt.wikipedia.org/wiki/BR-101</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
+        <AnnotationProperty IRI="osmdata:P12"/>
+        <IRI>BR-101</IRI>
+        <Literal>Q2877408</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:seeAlso"/>
         <IRI>BR-116</IRI>
         <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#anyURI">https://pt.wikipedia.org/wiki/BR-116</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
+        <AnnotationProperty IRI="osmdata:P12"/>
+        <IRI>BR-116</IRI>
+        <Literal>Q2739838</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>Velocidade_de_trânsito_máxima_padrão</IRI>
+        <Literal xml:lang="pt">Velocidade máxima da via quando não há sinalização explicita da velocidade</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
         <IRI>Via</IRI>
         <Literal xml:lang="pt">Classe para conter as vías individuais que existem no mundo real</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>osmdata:P12</IRI>
+        <Literal xml:lang="en">this key or tag represents a concept described by the given Wikidata item more precisely than any other key or tag</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>osmdata:P12</IRI>
+        <Literal xml:lang="en">Wikidata concept</Literal>
     </AnnotationAssertion>
 </Ontology>
 
