@@ -41,9 +41,6 @@ Ela serve para demonstrar exemplo básico de como funcionam programas como Prot�
         <Class IRI="Superfície_de_via"/>
     </Declaration>
     <Declaration>
-        <Class IRI="Tipo_de_via"/>
-    </Declaration>
-    <Declaration>
         <Class IRI="Tipos_de_veículos"/>
     </Declaration>
     <Declaration>
@@ -51,6 +48,9 @@ Ela serve para demonstrar exemplo básico de como funcionam programas como Prot�
     </Declaration>
     <Declaration>
         <Class IRI="Via"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="Via_de_trânsito"/>
     </Declaration>
     <Declaration>
         <Class IRI="Via_pavimentada"/>
@@ -77,24 +77,6 @@ Ela serve para demonstrar exemplo básico de como funcionam programas como Prot�
         <Class IRI="Ônibus_e_microônibus"/>
     </Declaration>
     <Declaration>
-        <Class IRI="110_kmh"/>
-    </Declaration>
-    <Declaration>
-        <Class IRI="30_kmh"/>
-    </Declaration>
-    <Declaration>
-        <Class IRI="40_kmh"/>
-    </Declaration>
-    <Declaration>
-        <Class IRI="60_kmh"/>
-    </Declaration>
-    <Declaration>
-        <Class IRI="80_kmh"/>
-    </Declaration>
-    <Declaration>
-        <Class IRI="90_kmh"/>
-    </Declaration>
-    <Declaration>
         <ObjectProperty IRI="ID_de_relação_do_OpenStreetMap"/>
     </Declaration>
     <Declaration>
@@ -113,17 +95,26 @@ Ela serve para demonstrar exemplo básico de como funcionam programas como Prot�
         <NamedIndividual IRI="BR-116"/>
     </Declaration>
     <Declaration>
+        <NamedIndividual IRI="110_kmh"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="30_kmh"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="40_kmh"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="60_kmh"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="80_kmh"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="90_kmh"/>
+    </Declaration>
+    <Declaration>
         <AnnotationProperty IRI="osmdata:P12"/>
     </Declaration>
-    <EquivalentClasses>
-        <Class IRI="Demais_veículos"/>
-        <ObjectComplementOf>
-            <ObjectUnionOf>
-                <Class IRI="Automóvel_e_caminhoneta"/>
-                <Class IRI="Ônibus_e_microônibus"/>
-            </ObjectUnionOf>
-        </ObjectComplementOf>
-    </EquivalentClasses>
     <SubClassOf>
         <Class IRI="Automóvel_e_caminhoneta"/>
         <Class IRI="Tipos_de_veículos"/>
@@ -146,11 +137,11 @@ Ela serve para demonstrar exemplo básico de como funcionam programas como Prot�
     </SubClassOf>
     <SubClassOf>
         <Class IRI="Via_rural"/>
-        <Class IRI="Tipo_de_via"/>
+        <Class IRI="Via_de_trânsito"/>
     </SubClassOf>
     <SubClassOf>
         <Class IRI="Via_urbana"/>
-        <Class IRI="Tipo_de_via"/>
+        <Class IRI="Via_de_trânsito"/>
     </SubClassOf>
     <SubClassOf>
         <Class IRI="Via_urbana_aterial"/>
@@ -172,30 +163,6 @@ Ela serve para demonstrar exemplo básico de como funcionam programas como Prot�
         <Class IRI="Ônibus_e_microônibus"/>
         <Class IRI="Tipos_de_veículos"/>
     </SubClassOf>
-    <SubClassOf>
-        <Class IRI="110_kmh"/>
-        <Class IRI="Velocidade_de_trânsito"/>
-    </SubClassOf>
-    <SubClassOf>
-        <Class IRI="30_kmh"/>
-        <Class IRI="Velocidade_de_trânsito"/>
-    </SubClassOf>
-    <SubClassOf>
-        <Class IRI="40_kmh"/>
-        <Class IRI="Velocidade_de_trânsito"/>
-    </SubClassOf>
-    <SubClassOf>
-        <Class IRI="60_kmh"/>
-        <Class IRI="Velocidade_de_trânsito"/>
-    </SubClassOf>
-    <SubClassOf>
-        <Class IRI="80_kmh"/>
-        <Class IRI="Velocidade_de_trânsito"/>
-    </SubClassOf>
-    <SubClassOf>
-        <Class IRI="90_kmh"/>
-        <Class IRI="Velocidade_de_trânsito"/>
-    </SubClassOf>
     <ClassAssertion>
         <Class IRI="Via"/>
         <NamedIndividual IRI="BR-101"/>
@@ -204,6 +171,35 @@ Ela serve para demonstrar exemplo básico de como funcionam programas como Prot�
         <Class IRI="Via"/>
         <NamedIndividual IRI="BR-116"/>
     </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="Velocidade_de_trânsito"/>
+        <NamedIndividual IRI="110_kmh"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="Velocidade_de_trânsito"/>
+        <NamedIndividual IRI="30_kmh"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="Velocidade_de_trânsito"/>
+        <NamedIndividual IRI="40_kmh"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="Velocidade_de_trânsito"/>
+        <NamedIndividual IRI="60_kmh"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="Velocidade_de_trânsito"/>
+        <NamedIndividual IRI="80_kmh"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="Velocidade_de_trânsito"/>
+        <NamedIndividual IRI="90_kmh"/>
+    </ClassAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="Velocidade_de_trânsito_máxima_padrão"/>
+        <NamedIndividual IRI="BR-101"/>
+        <NamedIndividual IRI="110_kmh"/>
+    </ObjectPropertyAssertion>
     <ObjectPropertyAssertion>
         <ObjectProperty IRI="Q_na_Wikidata"/>
         <NamedIndividual IRI="BR-116"/>
@@ -270,4 +266,3 @@ Ela serve para demonstrar exemplo básico de como funcionam programas como Prot�
 
 
 <!-- Generated by the OWL API (version 4.5.9.2019-02-01T07:24:44Z) https://github.com/owlcs/owlapi -->
-
